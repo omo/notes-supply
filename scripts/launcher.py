@@ -97,7 +97,7 @@ EOF
         self._wait_til_settle_size('/data/misc/perfetto-traces/trace')
         icws.adb('pull /data/misc/perfetto-traces/trace {}'.format(self.filename_nogz))
         if self.filename != self.filename_nogz:
-            icws.shell('gzip {}'.format(self.filename_nogz))
+            icws.shell('gzip -f {}'.format(self.filename_nogz))
 
     def __enter__(self):
         return self.start()
